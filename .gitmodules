@@ -1,0 +1,6 @@
+[submodule "inLocCIIRC_dataset"]
+	path = inLocCIIRC_dataset
+	url = git@gitlab.ciirc.cvut.cz:kremeto1/inlocciirc_dataset.git
+[submodule "inLocCIIRC_demo"]
+	path = inLocCIIRC_demo
+	url = git@gitlab.ciirc.cvut.cz:kremeto1/inlocciirc_demo.git
