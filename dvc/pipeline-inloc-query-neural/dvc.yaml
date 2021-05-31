@@ -1,0 +1,5 @@
+stages:
+  bdechamps_model:
+    cmd: bash -lc "sbatch --wait ../scripts/inloc-query-neural/inloc_pose_verification.sh bdechamps_model"
+    deps:
+    - ../scripts/inloc-query-neural/inloc_pose_verification.sh

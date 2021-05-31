@@ -1,0 +1,12 @@
+bdechamps_model:
+  input:
+    dir: '/home/kremeto1/neural_rendering/inferences/inloc/query_rendered_scaled'
+    topK_matfile: 'outputs/densePE_top100_shortlist.mat'
+    imgformat: '.png'
+
+  output:
+    dir: 'outputs'
+    txtname: 'neuralPV_with mask.txt'
+    matname: 'neuralPV_with_mask.mat'
+    synth_dir: "fullfile(params.output.dir, 'synthesized')"  # View synthesis results (directory)
+    synth_matformat: '.synth.mat'  # View synthesis results (file extention)
