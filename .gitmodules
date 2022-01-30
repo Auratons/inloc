@@ -4,3 +4,24 @@
 [submodule "inLocCIIRC_demo"]
 	path = inLocCIIRC_demo
 	url = git@gitlab.ciirc.cvut.cz:kremeto1/inlocciirc_demo.git
+[submodule "relja_matlab"]
+	path = functions/relja_matlab
+	url = https://github.com/Relja/relja_matlab.git
+[submodule "netvlad"]
+	path = functions/netvlad
+	url = https://github.com/Relja/netvlad.git
+[submodule "matconvnet"]
+	path = functions/matconvnet
+	url = https://github.com/vlfeat/matconvnet.git
+[submodule "vlfeat"]
+	path = functions/vlfeat
+	url = https://github.com/vlfeat/vlfeat.git
+[submodule "inpaint_nans"]
+	path = functions/inpaint_nans
+	url = https://github.com/briochemc/Inpaint_Nans.git
+[submodule "export_fig"]
+	path = functions/export_fig
+	url = https://github.com/altmany/export_fig.git
+[submodule "InLocCIIRC_utils"]
+	path = functions/inLocCIIRC_utils
+	url = https://gitlab.ciirc.cvut.cz/kremeto1/inlocciirc_utils.git
