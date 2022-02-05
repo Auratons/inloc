@@ -141,3 +141,7 @@ cython_debug/
 .vscode/
 *.out
 *.log
+*.mexa64
+*._*
+*.so.*
+.mexmaci64
