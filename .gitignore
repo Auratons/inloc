@@ -144,4 +144,4 @@ cython_debug/
 *.mexa64
 *._*
 *.so.*
-.mexmaci64
+*.mexmaci64
