@@ -20,7 +20,7 @@ function parfor_densePE( qname, dbname, params )
         load(this_db_matname, 'XYZcut');
         %load transformation matrix (local to global)
         transformation_txtname = fullfile(params.input_transforms_path, strcat("cutout_", erase(filename(dbname), "_reference"), ".mat"));
-        load(transformation_txtname, 'R', 'position');
+        load(transformation_txtname, 'R', 'position', 'calibration_mat');
         P_after = eye(4);
         P_after(1:3, 1:3) = R;
         P_after(1:3, 4) = position;
@@ -31,17 +31,7 @@ function parfor_densePE( qname, dbname, params )
         tent_xq2d = at_featureupsample(tent_xq2d,this_gvresults.cnnfeat1size,Iqsize);
         tent_xdb2d = at_featureupsample(tent_xdb2d,this_gvresults.cnnfeat2size,Idbsize);
         %query ray
-
-%         Kq = [params.data.q.fl, 0, Iqsize(2)/2.0; ...
-%             0, params.data.q.fl, Iqsize(1)/2.0; ...
-%             0, 0, 1];
-        f = 960/tan(30*pi/180);         % focal length so that FOV is 60 dg
-        u0 = 1920/2;                    % principal point u0
-        v0 = 1080/2;                    % principal point v0
-        Kq = [f 0 u0; 0 f v0; 0 0 1];    % the calibration matrix
-
-
-        tent_ray2d = Kq^-1 * [tent_xq2d; ones(1, size(tent_xq2d, 2))];
+        tent_ray2d = calibration_mat^-1 * [tent_xq2d; ones(1, size(tent_xq2d, 2))];
         %DB 3d points
         indx = sub2ind(size(XYZcut(:,:,1)),tent_xdb2d(2,:),tent_xdb2d(1,:));
         X = XYZcut(:,:,1);Y = XYZcut(:,:,2);Z = XYZcut(:,:,3);
