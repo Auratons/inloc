@@ -4,7 +4,7 @@ function parfor_denseGV( cnnq, qname, dbname, params )
     addpath(fullfile(filepath, '..', 'yael_matlab_linux64_v438'));
     addpath(fullfile(filepath, '..', 'inLocCIIRC_utils'));
 
-    coarselayerlevel = get_with_default(params, 'input_feature_layer', 5);
+    coarselayerlevel = get_with_default(params, 'input_feature_layer', 6);
     finelayerlevel = 3;
 
     this_densegv_matname = fullfile(params.output_gv_dense_dir, filename(qname), strcat(filename(dbname), ".mat"));
