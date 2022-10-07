@@ -1,0 +1,7 @@
+stages:
+  artwin_experiment:
+    cmd: bash -lc "sbatch --wait ../scripts/inloc-query-neural/inloc_pose_verification.sh artwin"
+    deps:
+    - ../scripts/inloc-query-neural/inloc_pose_verification.sh
+    outs:
+    - /home/kremeto1/inloc/datasets/artwin/

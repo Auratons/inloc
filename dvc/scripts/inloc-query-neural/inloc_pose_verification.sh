@@ -10,8 +10,8 @@ module load MATLAB/2018a
 module load SuiteSparse/5.1.2-foss-2018b-METIS-5.1.0
 
 # jq may not be installed globally, add brew as another option
-# Also, conda is not activateing the environment
-export PATH=~/.conda/envs/pipeline/bin:~/.linuxbrew/bin:${PATH}
+# Also, conda is not activating the environment
+export PATH=~/.homebrew/bin:${PATH}
 
 CONFIG_NAME=$1
 TMP_PARAMS=$(mktemp)
@@ -29,23 +29,13 @@ else
 fi
 
 # Resolve libvl.so: cannot open shared object file: No such file or directory.
-export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:$CURRENT_DIR/../../../inLocCIIRC_demo/functions/vlfeat/toolbox/mex/mexa64/
+export LD_LIBRARY_PATH=${c}:$CURRENT_DIR/../../../functions/vlfeat/toolbox/mex/mexa64/
 
 cat > ${TMP_PARAMS} <<- EOF
-
-	params = struct();
-
-	params.input.dir              = '$(cat params.yaml | yq -r '.'${CONFIG_NAME}'.input.dir')';
-	params.input.topK_matfile     = '$(cat params.yaml | yq -r '.'${CONFIG_NAME}'.input.topK_matfile')';
-	params.input.imgformat        = '$(cat params.yaml | yq -r '.'${CONFIG_NAME}'.input.imgformat')';
-
-	params.output.dir             = '$(cat params.yaml | yq -r '.'${CONFIG_NAME}'.output.dir')';
-	params.output.txtname         = '$(cat params.yaml | yq -r '.'${CONFIG_NAME}'.output.txtname')';
-	params.output.matname         = '$(cat params.yaml | yq -r '.'${CONFIG_NAME}'.output.matname')';
-	params.output.synth.dir       = $(cat params.yaml | yq -r '.'${CONFIG_NAME}'.output.synth_dir');
-	params.output.synth.matformat = '$(cat params.yaml | yq -r '.'${CONFIG_NAME}'.output.synth_matformat')';
+    params_file = 'params.yaml';
+    experiment_name = ${CONFIG_NAME};
 
 EOF
 
 cd $CURRENT_DIR/../../../inLocCIIRC_demo
-cat startup.m ${TMP_PARAMS} inloc_neural_pose_verification.m | ~/.linuxbrew/bin/time -f 'real\t%e s\nuser\t%U s\nsys\t%S s\nmemmax\t%M kB' matlab -nodesktop
+cat startup.m ${TMP_PARAMS} inloc_demo_neural.m | ~/.linuxbrew/bin/time -f 'real\t%e s\nuser\t%U s\nsys\t%S s\nmemmax\t%M kB' matlab -nodesktop
