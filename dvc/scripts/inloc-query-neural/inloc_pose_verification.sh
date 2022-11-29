@@ -1,19 +1,34 @@
 #!/bin/bash
-#SBATCH --job-name=inloc_pose_verification
-#SBATCH --output=logs/inloc_pose_verification_%j.log
+#SBATCH --job-name=inloc
+#SBATCH --output=logs/inloc_algo_%j.log
 #SBATCH --mem=64G
 #SBATCH --time=2-00:00:00
 #SBATCH --partition=gpu
 #SBATCH --gres=gpu:1
+#SBATCH --cpus-per-task=4
 
-module load MATLAB/2018a
+
+set -e
+
+. /opt/ohpc/admin/lmod/lmod/init/bash
+ml purge
+module load MATLAB/2019b
 module load SuiteSparse/5.1.2-foss-2018b-METIS-5.1.0
 
 # jq may not be installed globally, add brew as another option
-# Also, conda is not activating the environment
-export PATH=~/.homebrew/bin:${PATH}
+# Also, conda is not activateing the environment
+export PATH=~/.conda/envs/pipeline/bin:~/.homebrew/bin:${PATH}
 
-CONFIG_NAME=$1
+nvidia-smi
+
+echo
+echo "Running on $(hostname)"
+echo "The $(type python)"
+echo "Interactive Slurm mode GPU index: ${SLURM_STEP_GPUS}"
+echo "Batch Slurm mode GPU index: ${SLURM_JOB_GPUS}"
+echo
+
+CONFIG_NAME=${1:-main}
 TMP_PARAMS=$(mktemp)
 
 trap "rm -f ${TMP_PARAMS}" 0 2 3 15
@@ -29,13 +44,15 @@ else
 fi
 
 # Resolve libvl.so: cannot open shared object file: No such file or directory.
-export LD_LIBRARY_PATH=${c}:$CURRENT_DIR/../../../functions/vlfeat/toolbox/mex/mexa64/
+export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:$CURRENT_DIR/../../../functions/vlfeat/toolbox/mex/mexa64/
 
 cat > ${TMP_PARAMS} <<- EOF
-    params_file = 'params.yaml';
-    experiment_name = ${CONFIG_NAME};
+params_file = '$(realpath params.yaml)';
+experiment_name = '${CONFIG_NAME}';
 
 EOF
 
-cd $CURRENT_DIR/../../../inLocCIIRC_demo
-cat startup.m ${TMP_PARAMS} inloc_demo_neural.m | ~/.linuxbrew/bin/time -f 'real\t%e s\nuser\t%U s\nsys\t%S s\nmemmax\t%M kB' matlab -nodesktop
+cd "${CURRENT_DIR}/../../../inLocCIIRC_demo"
+code=$(cat ${TMP_PARAMS} inloc_demo_neural.m)
+echo "${code}"
+echo "${code}" | ~/.homebrew/bin/time -f 'real\t%e s\nuser\t%U s\nsys\t%S s\nmemmax\t%M kB' matlab -nodesktop
