@@ -1,0 +1,45 @@
+
+main:
+  file_lists:
+    input_db_dir: "/nfs/projects/artwin/experiments/thesis/artwin_as_inloc/joined-dataset-splatting-inloc_format/cutouts"
+    input_db_glob: "cutout_*.png"
+    input_query_dir: "/nfs/projects/artwin/experiments/thesis/artwin_as_inloc/joined-dataset-splatting/test"
+    input_query_glob: "*_reference.png"
+    output_db_mat_path: "/home/kremeto1/inloc/datasets/pipeline-artwin-conv5-splatting/db_imgnames_all.mat"
+    output_query_mat_path: "/home/kremeto1/inloc/datasets/pipeline-artwin-conv5-splatting/query_imgnames_all.mat"
+
+  features:
+    input_netvlad_pretrained: "/home/lucivpav/NetVLAD/vd16_pitts30k_conv5_3_vlad_preL2_intra_white.mat"
+    input_db_mat_path: "/home/kremeto1/inloc/datasets/pipeline-artwin-conv5-splatting/db_imgnames_all.mat"
+    input_query_mat_path: "/home/kremeto1/inloc/datasets/pipeline-artwin-conv5-splatting/query_imgnames_all.mat"
+    output_db_features_path: "/home/kremeto1/inloc/datasets/pipeline-artwin-conv5-splatting/db_features/"
+    output_query_features_path: "/home/kremeto1/inloc/datasets/pipeline-artwin-conv5-splatting/query_features/"
+    input_feature_layer: 5
+
+  scores:
+    input_db_features_path: "/home/kremeto1/inloc/datasets/pipeline-artwin-conv5-splatting/db_features/"
+    input_query_features_path: "/home/kremeto1/inloc/datasets/pipeline-artwin-conv5-splatting/query_features/"
+    output_scores_mat_path: "/home/kremeto1/inloc/datasets/pipeline-artwin-conv5-splatting/scores.mat"
+    input_feature_layer: 5
+
+  retrieval:
+    input_scores_mat_path: "/home/kremeto1/inloc/datasets/pipeline-artwin-conv5-splatting/scores.mat"
+    input_topN: 100
+    output_topN_mat_path: "/home/kremeto1/inloc/datasets/pipeline-artwin-conv5-splatting/original_top100_shortlist.mat"
+
+  pose_estimation:
+    input_pnp_topN: 10
+    input_query_features_path: "/home/kremeto1/inloc/datasets/pipeline-artwin-conv5-splatting/query_features/"
+    input_db_features_path: "/home/kremeto1/inloc/datasets/pipeline-artwin-conv5-splatting/db_features/"
+    input_topN_mat_path: "/home/kremeto1/inloc/datasets/pipeline-artwin-conv5-splatting/original_top100_shortlist.mat"
+    input_transforms_path: "/nfs/projects/artwin/experiments/thesis/artwin_as_inloc/joined-dataset-splatting-inloc_format/poses"
+    input_cutout_matfiles_path: "/nfs/projects/artwin/experiments/thesis/artwin_as_inloc/joined-dataset-splatting-inloc_format/matfiles"
+    output_candidate_mat_path: "/home/kremeto1/inloc/datasets/pipeline-artwin-conv5-splatting/densePE_top100_shortlist.mat"
+    output_gv_dense_dir: "/home/kremeto1/inloc/datasets/pipeline-artwin-conv5-splatting/gv_dense"
+    output_pnp_dense_inlier_dir: "/home/kremeto1/inloc/datasets/pipeline-artwin-conv5-splatting/pnp_dense_inlier"
+    input_feature_layer: 5
+
+  pose_verification:
+    input_candidate_pose_renders_path: "/home/kremeto1/inloc/datasets/pipeline-artwin-conv5-splatting/candidate_renders"
+    input_candidate_mat_path: "/home/kremeto1/inloc/datasets/pipeline-artwin-conv5-splatting/densePE_top100_shortlist.mat"
+    output_shortlist_mat_path: "/home/kremeto1/inloc/datasets/pipeline-artwin-conv5-splatting/densePV_top10_shortlist.mat"
