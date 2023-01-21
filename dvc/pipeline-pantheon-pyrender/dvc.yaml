@@ -1,3 +1,0 @@
-stages:
-  pantheon:
-    cmd: bash -lc "sbatch --wait ../scripts/inloc-query-neural/inloc_pose_verification.sh main"

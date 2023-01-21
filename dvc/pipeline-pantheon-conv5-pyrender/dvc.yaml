@@ -1,0 +1,3 @@
+stages:
+  hagia:
+    cmd: bash -lc "sbatch --wait ../scripts/inloc_pose_verification.sh main"
