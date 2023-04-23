@@ -43,3 +43,6 @@ main:
     input_candidate_pose_renders_path: "/home/kremeto1/inloc/datasets/pipeline-artwin-conv5-pyrender/candidate_renders"
     input_candidate_mat_path: "/home/kremeto1/inloc/datasets/pipeline-artwin-conv5-pyrender/densePE_top100_shortlist.mat"
     output_shortlist_mat_path: "/home/kremeto1/inloc/datasets/pipeline-artwin-conv5-pyrender/densePV_top10_shortlist.mat"
+
+  evaluation:
+    root_to_process: "/home/kremeto1/inloc/datasets/pipeline-artwin-conv5-pyrender/"
