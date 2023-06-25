@@ -1,9 +1,9 @@
 [submodule "inLocCIIRC_dataset"]
 	path = inLocCIIRC_dataset
-	url = git@gitlab.ciirc.cvut.cz:kremeto1/inlocciirc_dataset.git
+	url = git@github.com:Auratons/inlocciirc_dataset.git
 [submodule "inLocCIIRC_demo"]
 	path = inLocCIIRC_demo
-	url = git@gitlab.ciirc.cvut.cz:kremeto1/inlocciirc_demo.git
+	url = git@github.com:Auratons/inlocciirc_demo.git
 [submodule "relja_matlab"]
 	path = functions/relja_matlab
 	url = https://github.com/Relja/relja_matlab.git
@@ -24,4 +24,4 @@
 	url = https://github.com/altmany/export_fig.git
 [submodule "InLocCIIRC_utils"]
 	path = functions/inLocCIIRC_utils
-	url = https://gitlab.ciirc.cvut.cz/kremeto1/inlocciirc_utils.git
+	url = git@github.com:Auratons/inlocciirc_utils.git
