@@ -1,21 +1,8 @@
-bdechamps_model:
-  input:
-    dir: '/home/kremeto1/neural_rendering/inferences/inloc/query_rendered_scaled'
-    topK_matfile: 'outputs/densePE_top100_shortlist.mat'
-    imgformat: '.png'
-
-  output:
-    dir: 'outputs'
-    txtname: 'neuralPV_with mask.txt'
-    matname: 'neuralPV_with_mask.mat'
-    synth_dir: "fullfile(params.output.dir, 'synthesized')"  # View synthesis results (directory)
-    synth_matformat: '.synth.mat'  # View synthesis results (file extention)
-
-artwin:
+main:
   file_lists:
-    input_db_dir: "/nfs/projects/artwin/experiments/hololens_mapper/joined_dataset/train"
+    input_db_dir: "/nfs/projects/artwin/experiments/thesis/artwin_as_inloc/joined-dataset-pyrender-black_bg/train"
     input_db_glob: "*_reference.png"
-    input_query_dir: "/nfs/projects/artwin/experiments/hololens_mapper/joined_dataset/test"
+    input_query_dir: "/nfs/projects/artwin/experiments/thesis/artwin_as_inloc/joined-dataset-pyrender-black_bg/test"
     input_query_glob: "*_reference.png"
     output_db_mat_path: "/home/kremeto1/inloc/datasets/artwin/db_imgpaths.mat"
     output_query_mat_path: "/home/kremeto1/inloc/datasets/artwin/query_imgpaths.mat"
@@ -31,6 +18,7 @@ artwin:
     input_db_features_mat_path: "/home/kremeto1/inloc/datasets/artwin/db_features.mat"
     input_query_features_mat_path: "/home/kremeto1/inloc/datasets/artwin/query_features.mat"
     output_scores_mat_path: "/home/kremeto1/inloc/datasets/artwin/scores.mat"
+    input_feature_layer: 5
 
   retrieval:
     input_scores_mat_path: "/home/kremeto1/inloc/datasets/artwin/scores.mat"
@@ -48,8 +36,9 @@ artwin:
     output_candidate_mat_path: "/home/kremeto1/inloc/datasets/artwin/densePE_top100_shortlist.mat"
     output_gv_dense_dir: "/home/kremeto1/inloc/datasets/artwin/gv_dense"
     output_pnp_dense_inlier_dir: "/home/kremeto1/inloc/datasets/artwin/pnp_dense_inlier"
+    input_feature_layer: 5
 
   pose_verification:
+    input_cutout_matfiles_path: "/nfs/projects/artwin/experiments/artwin-inloc/joined_dataset_train/matfiles"
     input_candidate_mat_path: "/home/kremeto1/inloc/datasets/artwin/densePE_top100_shortlist.mat"
     output_shortlist_mat_path: "/home/kremeto1/inloc/datasets/artwin/densePV_top10_shortlist.mat"
-    # TODO rendered images path and glob

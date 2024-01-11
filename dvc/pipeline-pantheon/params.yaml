@@ -1,0 +1,167 @@
+pyrender:
+  pose_verification:
+    input_candidate_pose_renders_path: "/home/kremeto1/inloc/datasets/pipeline-pantheon-conv5-pyrender/candidate_renders"
+    input_candidate_mat_path: "/home/kremeto1/inloc/datasets/pipeline-pantheon-conv5-pyrender/densePE_top100_shortlist.mat"
+    output_shortlist_mat_path: "/home/kremeto1/inloc/dvc/pipeline-pantheon/pyrender/densePV_top10_shortlist.mat"
+  evaluation:
+    root_to_process: "/home/kremeto1/inloc/dvc/pipeline-pantheon/pyrender"
+    input_query_mat_path: "/home/kremeto1/inloc/datasets/pipeline-pantheon-conv5-pyrender/query_imgnames_all.mat"
+
+pyrender_neural:
+  pose_verification:
+    input_candidate_pose_renders_path: "/home/kremeto1/inloc/datasets/pipeline-pantheon-conv5-pyrender/candidate_renders_neural"
+    input_candidate_mat_path: "/home/kremeto1/inloc/datasets/pipeline-pantheon-conv5-pyrender/densePE_top100_shortlist.mat"
+    output_shortlist_mat_path: "/home/kremeto1/inloc/dvc/pipeline-pantheon/pyrender_neural/densePV_top10_shortlist.mat"
+  evaluation:
+    root_to_process: "/home/kremeto1/inloc/dvc/pipeline-pantheon/pyrender_neural"
+    input_query_mat_path: "/home/kremeto1/inloc/datasets/pipeline-pantheon-conv5-pyrender/query_imgnames_all.mat"
+
+pyrender_spheres:
+  pose_verification:
+    input_candidate_pose_renders_path: "/home/kremeto1/inloc/datasets/pipeline-pantheon-conv5-pyrender/candidate_renders_spheres"
+    input_candidate_mat_path: "/home/kremeto1/inloc/datasets/pipeline-pantheon-conv5-pyrender/densePE_top100_shortlist.mat"
+    output_shortlist_mat_path: "/home/kremeto1/inloc/dvc/pipeline-pantheon/pyrender_spheres/densePV_top10_shortlist.mat"
+  evaluation:
+    root_to_process: "/home/kremeto1/inloc/dvc/pipeline-pantheon/pyrender_spheres"
+    input_query_mat_path: "/home/kremeto1/inloc/datasets/pipeline-pantheon-conv5-pyrender/query_imgnames_all.mat"
+
+pyrender_spheres_neural:
+  pose_verification:
+    input_candidate_pose_renders_path: "/home/kremeto1/inloc/datasets/pipeline-pantheon-conv5-pyrender/candidate_renders_spheres_neural"
+    input_candidate_mat_path: "/home/kremeto1/inloc/datasets/pipeline-pantheon-conv5-pyrender/densePE_top100_shortlist.mat"
+    output_shortlist_mat_path: "/home/kremeto1/inloc/dvc/pipeline-pantheon/pyrender_spheres_neural/densePV_top10_shortlist.mat"
+  evaluation:
+    root_to_process: "/home/kremeto1/inloc/dvc/pipeline-pantheon/pyrender_spheres_neural"
+    input_query_mat_path: "/home/kremeto1/inloc/datasets/pipeline-pantheon-conv5-pyrender/query_imgnames_all.mat"
+
+pyrender_splatting:
+  pose_verification:
+    input_candidate_pose_renders_path: "/home/kremeto1/inloc/datasets/pipeline-pantheon-conv5-pyrender/candidate_renders_splatting"
+    input_candidate_mat_path: "/home/kremeto1/inloc/datasets/pipeline-pantheon-conv5-pyrender/densePE_top100_shortlist.mat"
+    output_shortlist_mat_path: "/home/kremeto1/inloc/dvc/pipeline-pantheon/pyrender_splatting/densePV_top10_shortlist.mat"
+  evaluation:
+    root_to_process: "/home/kremeto1/inloc/dvc/pipeline-pantheon/pyrender_splatting"
+    input_query_mat_path: "/home/kremeto1/inloc/datasets/pipeline-pantheon-conv5-pyrender/query_imgnames_all.mat"
+
+pyrender_splatting_neural:
+  pose_verification:
+    input_candidate_pose_renders_path: "/home/kremeto1/inloc/datasets/pipeline-pantheon-conv5-pyrender/candidate_renders_splatting_neural"
+    input_candidate_mat_path: "/home/kremeto1/inloc/datasets/pipeline-pantheon-conv5-pyrender/densePE_top100_shortlist.mat"
+    output_shortlist_mat_path: "/home/kremeto1/inloc/dvc/pipeline-pantheon/pyrender_splatting_neural/densePV_top10_shortlist.mat"
+  evaluation:
+    root_to_process: "/home/kremeto1/inloc/dvc/pipeline-pantheon/pyrender_splatting_neural"
+    input_query_mat_path: "/home/kremeto1/inloc/datasets/pipeline-pantheon-conv5-pyrender/query_imgnames_all.mat"
+
+
+
+
+spheres:
+  pose_verification:
+    input_candidate_pose_renders_path: "/home/kremeto1/inloc/datasets/pipeline-pantheon-conv5-spheres/candidate_renders"
+    input_candidate_mat_path: "/home/kremeto1/inloc/datasets/pipeline-pantheon-conv5-spheres/densePE_top100_shortlist.mat"
+    output_shortlist_mat_path: "/home/kremeto1/inloc/dvc/pipeline-pantheon/spheres/densePV_top10_shortlist.mat"
+  evaluation:
+    root_to_process: "/home/kremeto1/inloc/dvc/pipeline-pantheon/spheres"
+    input_query_mat_path: "/home/kremeto1/inloc/datasets/pipeline-pantheon-conv5-pyrender/query_imgnames_all.mat"
+
+spheres_neural:
+  pose_verification:
+    input_candidate_pose_renders_path: "/home/kremeto1/inloc/datasets/pipeline-pantheon-conv5-spheres/candidate_renders_neural"
+    input_candidate_mat_path: "/home/kremeto1/inloc/datasets/pipeline-pantheon-conv5-spheres/densePE_top100_shortlist.mat"
+    output_shortlist_mat_path: "/home/kremeto1/inloc/dvc/pipeline-pantheon/spheres_neural/densePV_top10_shortlist.mat"
+  evaluation:
+    root_to_process: "/home/kremeto1/inloc/dvc/pipeline-pantheon/spheres_neural"
+    input_query_mat_path: "/home/kremeto1/inloc/datasets/pipeline-pantheon-conv5-pyrender/query_imgnames_all.mat"
+
+spheres_pyrender:
+  pose_verification:
+    input_candidate_pose_renders_path: "/home/kremeto1/inloc/datasets/pipeline-pantheon-conv5-spheres/candidate_renders_pyrender"
+    input_candidate_mat_path: "/home/kremeto1/inloc/datasets/pipeline-pantheon-conv5-spheres/densePE_top100_shortlist.mat"
+    output_shortlist_mat_path: "/home/kremeto1/inloc/dvc/pipeline-pantheon/spheres_pyrender/densePV_top10_shortlist.mat"
+  evaluation:
+    root_to_process: "/home/kremeto1/inloc/dvc/pipeline-pantheon/spheres_pyrender"
+    input_query_mat_path: "/home/kremeto1/inloc/datasets/pipeline-pantheon-conv5-pyrender/query_imgnames_all.mat"
+
+spheres_pyrender_neural:
+  pose_verification:
+    input_candidate_pose_renders_path: "/home/kremeto1/inloc/datasets/pipeline-pantheon-conv5-spheres/candidate_renders_pyrender_neural"
+    input_candidate_mat_path: "/home/kremeto1/inloc/datasets/pipeline-pantheon-conv5-spheres/densePE_top100_shortlist.mat"
+    output_shortlist_mat_path: "/home/kremeto1/inloc/dvc/pipeline-pantheon/spheres_pyrender_neural/densePV_top10_shortlist.mat"
+  evaluation:
+    root_to_process: "/home/kremeto1/inloc/dvc/pipeline-pantheon/spheres_pyrender_neural"
+    input_query_mat_path: "/home/kremeto1/inloc/datasets/pipeline-pantheon-conv5-pyrender/query_imgnames_all.mat"
+
+spheres_splatting:
+  pose_verification:
+    input_candidate_pose_renders_path: "/home/kremeto1/inloc/datasets/pipeline-pantheon-conv5-spheres/candidate_renders_splatting"
+    input_candidate_mat_path: "/home/kremeto1/inloc/datasets/pipeline-pantheon-conv5-spheres/densePE_top100_shortlist.mat"
+    output_shortlist_mat_path: "/home/kremeto1/inloc/dvc/pipeline-pantheon/spheres_splatting/densePV_top10_shortlist.mat"
+  evaluation:
+    root_to_process: "/home/kremeto1/inloc/dvc/pipeline-pantheon/spheres_splatting"
+    input_query_mat_path: "/home/kremeto1/inloc/datasets/pipeline-pantheon-conv5-pyrender/query_imgnames_all.mat"
+
+spheres_splatting_neural:
+  pose_verification:
+    input_candidate_pose_renders_path: "/home/kremeto1/inloc/datasets/pipeline-pantheon-conv5-spheres/candidate_renders_splatting_neural"
+    input_candidate_mat_path: "/home/kremeto1/inloc/datasets/pipeline-pantheon-conv5-spheres/densePE_top100_shortlist.mat"
+    output_shortlist_mat_path: "/home/kremeto1/inloc/dvc/pipeline-pantheon/spheres_splatting_neural/densePV_top10_shortlist.mat"
+  evaluation:
+    root_to_process: "/home/kremeto1/inloc/dvc/pipeline-pantheon/spheres_splatting_neural"
+    input_query_mat_path: "/home/kremeto1/inloc/datasets/pipeline-pantheon-conv5-pyrender/query_imgnames_all.mat"
+
+
+
+
+splatting:
+  pose_verification:
+    input_candidate_pose_renders_path: "/home/kremeto1/inloc/datasets/pipeline-pantheon-conv5-splatting/candidate_renders"
+    input_candidate_mat_path: "/home/kremeto1/inloc/datasets/pipeline-pantheon-conv5-splatting/densePE_top100_shortlist.mat"
+    output_shortlist_mat_path: "/home/kremeto1/inloc/dvc/pipeline-pantheon/splatting/densePV_top10_shortlist.mat"
+  evaluation:
+    root_to_process: "/home/kremeto1/inloc/dvc/pipeline-pantheon/splatting"
+    input_query_mat_path: "/home/kremeto1/inloc/datasets/pipeline-pantheon-conv5-pyrender/query_imgnames_all.mat"
+
+splatting_neural:
+  pose_verification:
+    input_candidate_pose_renders_path: "/home/kremeto1/inloc/datasets/pipeline-pantheon-conv5-splatting/candidate_renders_neural"
+    input_candidate_mat_path: "/home/kremeto1/inloc/datasets/pipeline-pantheon-conv5-splatting/densePE_top100_shortlist.mat"
+    output_shortlist_mat_path: "/home/kremeto1/inloc/dvc/pipeline-pantheon/splatting_neural/densePV_top10_shortlist.mat"
+  evaluation:
+    root_to_process: "/home/kremeto1/inloc/dvc/pipeline-pantheon/splatting_neural"
+    input_query_mat_path: "/home/kremeto1/inloc/datasets/pipeline-pantheon-conv5-pyrender/query_imgnames_all.mat"
+
+splatting_pyrender:
+  pose_verification:
+    input_candidate_pose_renders_path: "/home/kremeto1/inloc/datasets/pipeline-pantheon-conv5-splatting/candidate_renders_pyrender"
+    input_candidate_mat_path: "/home/kremeto1/inloc/datasets/pipeline-pantheon-conv5-splatting/densePE_top100_shortlist.mat"
+    output_shortlist_mat_path: "/home/kremeto1/inloc/dvc/pipeline-pantheon/splatting_pyrender/densePV_top10_shortlist.mat"
+  evaluation:
+    root_to_process: "/home/kremeto1/inloc/dvc/pipeline-pantheon/splatting_pyrender"
+    input_query_mat_path: "/home/kremeto1/inloc/datasets/pipeline-pantheon-conv5-pyrender/query_imgnames_all.mat"
+
+splatting_pyrender_neural:
+  pose_verification:
+    input_candidate_pose_renders_path: "/home/kremeto1/inloc/datasets/pipeline-pantheon-conv5-splatting/candidate_renders_pyrender_neural"
+    input_candidate_mat_path: "/home/kremeto1/inloc/datasets/pipeline-pantheon-conv5-splatting/densePE_top100_shortlist.mat"
+    output_shortlist_mat_path: "/home/kremeto1/inloc/dvc/pipeline-pantheon/splatting_pyrender_neural/densePV_top10_shortlist.mat"
+  evaluation:
+    root_to_process: "/home/kremeto1/inloc/dvc/pipeline-pantheon/splatting_pyrender_neural"
+    input_query_mat_path: "/home/kremeto1/inloc/datasets/pipeline-pantheon-conv5-pyrender/query_imgnames_all.mat"
+
+splatting_spheres:
+  pose_verification:
+    input_candidate_pose_renders_path: "/home/kremeto1/inloc/datasets/pipeline-pantheon-conv5-splatting/candidate_renders_spheres"
+    input_candidate_mat_path: "/home/kremeto1/inloc/datasets/pipeline-pantheon-conv5-splatting/densePE_top100_shortlist.mat"
+    output_shortlist_mat_path: "/home/kremeto1/inloc/dvc/pipeline-pantheon/splatting_spheres/densePV_top10_shortlist.mat"
+  evaluation:
+    root_to_process: "/home/kremeto1/inloc/dvc/pipeline-pantheon/splatting_spheres"
+    input_query_mat_path: "/home/kremeto1/inloc/datasets/pipeline-pantheon-conv5-pyrender/query_imgnames_all.mat"
+
+splatting_spheres_neural:
+  pose_verification:
+    input_candidate_pose_renders_path: "/home/kremeto1/inloc/datasets/pipeline-pantheon-conv5-splatting/candidate_renders_spheres_neural"
+    input_candidate_mat_path: "/home/kremeto1/inloc/datasets/pipeline-pantheon-conv5-splatting/densePE_top100_shortlist.mat"
+    output_shortlist_mat_path: "/home/kremeto1/inloc/dvc/pipeline-pantheon/splatting_spheres_neural/densePV_top10_shortlist.mat"
+  evaluation:
+    root_to_process: "/home/kremeto1/inloc/dvc/pipeline-pantheon/splatting_spheres_neural"
+    input_query_mat_path: "/home/kremeto1/inloc/datasets/pipeline-pantheon-conv5-pyrender/query_imgnames_all.mat"

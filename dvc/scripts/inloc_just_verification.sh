@@ -47,17 +47,11 @@ fi
 # Resolve libvl.so: cannot open shared object file: No such file or directory.
 export LD_LIBRARY_PATH="${LD_LIBRARY_PATH}:${CURRENT_DIR}/../../functions/vlfeat/toolbox/mex/mexa64/"
 
-# SCRATCH_DIRECTORY=/lscratch/${USER}/data
-# mkdir -p ${SCRATCH_DIRECTORY}
-
-# cp -r /home/kremeto1/inloc/datasets/pipeline-inloc-conv5-pyrender/db_features/ ${SCRATCH_DIRECTORY}
-
 cat > ${TMP_ENTRYPOINT} <<- EOF
 params_file = '$(realpath params.yaml)';
 experiment_name = '${CONFIG_NAME}';
-low = 201
-high = 356
-run('inloc_all_in_one.m');
+run('inloc_just_verification.m');
+run('inloc_all_in_one_evaluate.m');
 EOF
 
 cat "${TMP_ENTRYPOINT}"
@@ -66,5 +60,3 @@ echo
 cd "${CURRENT_DIR}/../../inLocCIIRC_demo"
 
 cat "${TMP_ENTRYPOINT}" | ~/.homebrew/bin/time -f 'real\t%e s\nuser\t%U s\nsys\t%S s\nmemmax\t%M kB' matlab -nodesktop
-
-# rm -rf ${SCRATCH_DIRECTORY}
